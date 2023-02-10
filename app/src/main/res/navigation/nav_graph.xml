@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recipesFragment">
+
+    <fragment
+        android:id="@+id/recipesFragment"
+        android:name="com.rana.hamza.tastyrecipes.ui.fragments.recipe.RecipesFragment"
+        android:label="Recipes"
+        tools:layout="@layout/fragment_recipes" >
+        <action
+            android:id="@+id/action_recipesFragment_to_recipesBottomSheet2"
+            app:destination="@id/recipesBottomSheet" />
+        <argument
+            android:name="backFromBottomSheet"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteRecipesFragment"
+        android:name="com.rana.hamza.tastyrecipes.ui.fragments.favorite.FavoriteRecipesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorite_recipes" />
+    <fragment
+        android:id="@+id/foodJokeFragment"
+        android:name="com.rana.hamza.tastyrecipes.ui.fragments.foodjoke.FoodJokeFragment"
+        android:label="Food Joke"
+        tools:layout="@layout/fragment_food_joke" />
+    <dialog
+        android:id="@+id/recipesBottomSheet"
+        android:name="com.rana.hamza.tastyrecipes.bottomSheets.RecipesBottomSheet"
+        android:label="recipes_bottom_sheet"
+        tools:layout="@layout/recipes_bottom_sheet" >
+        <action
+            android:id="@+id/action_recipesBottomSheet_to_recipesFragment2"
+            app:destination="@id/recipesFragment" >
+            <argument
+                android:name="backFromBottomSheet"
+                android:defaultValue="true" />
+        </action>
+    </dialog>
+    <argument
+        android:name="backFromBottomSheet"
+        android:defaultValue="true" />
+</navigation>
